@@ -1,0 +1,22 @@
+{
+  "CONTRACT_ADDRESS": "0x313d47ac9106ddcae354ba601a0f9097375587f0",
+  "SCAN_LINK": "https://etherscan.io/address/0x313d47ac9106ddcae354ba601a0f9097375587f0",
+  "NETWORK": {
+    "NAME": "Ethereum",
+    "SYMBOL": "ETH",
+    "ID": 4
+  },
+  "NETWORK_ID_WALLET": 1,
+  "NFT_NAME": "HOUSE PARTY ANIMAL",
+  "SYMBOL": "HPA",
+  "MAX_SUPPLY": 4444 ,
+  "WEI_COST_WL": 350000000000000000,
+  "DISPLAY_COST_WL": 0.35,
+  "WEI_COST_PU": 350000000000000000,
+  "DISPLAY_COST_PU": 0.35,   
+  "MAX_LIMIT": 2,
+  "GAS_LIMIT": 285000,
+  "MARKETPLACE": "Opeansea",
+  "MARKETPLACE_LINK": "https://opensea.io/collection/mutant-age-camel-club",
+  "SHOW_BACKGROUND": true
+}
