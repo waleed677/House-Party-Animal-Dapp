@@ -155,6 +155,24 @@ function Home() {
     setDisplayCost(parseFloat(displayCost * 2).toFixed(3));
   };
 
+  const decrementMintAmount = () => {
+    let newMintAmount = mintAmount - 1;
+    if (newMintAmount < 1) {
+      newMintAmount = 1;
+    }
+    setMintAmount(newMintAmount);
+    setDisplayCost(parseFloat(CONFIG.DISPLAY_COST_WL * newMintAmount).toFixed(3));
+  };
+
+  const incrementMintAmount = () => {
+    let newMintAmount = mintAmount + 1;
+    if (newMintAmount > 2) {
+      newMintAmount = 2;
+    }
+    setMintAmount(newMintAmount);
+    setDisplayCost(parseFloat(CONFIG.DISPLAY_COST_WL * newMintAmount).toFixed(3));
+  };
+
   return (
     <>
 
@@ -174,10 +192,10 @@ function Home() {
             <s.SpacerLarge />
 
             <s.FlexContainer fd={"row"} ai={"center"} jc={"space-between"}>
-            <s.TextTitle>Amount</s.TextTitle>
+            
             <s.AmountContainer ai={"center"} jc={"center"} fd={"row"}>
               <StyledRoundButton
-                style={{ lineHeight: 0.4 }}
+                style={{  border:"1px solid #fff", borderRadius: "50%",padding:"15px" }}
                 disabled={claimingNft ? 1 : 0}
                 onClick={(e) => {
                   e.preventDefault();
@@ -193,6 +211,7 @@ function Home() {
               <s.SpacerMedium />
               <StyledRoundButton
                 disabled={claimingNft ? 1 : 0}
+                style={{  border:"1px solid #fff", borderRadius: "50%",padding:"15px" }}
                 onClick={(e) => {
                   e.preventDefault();
                   incrementMintAmount();
