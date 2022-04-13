@@ -25,7 +25,7 @@ function Home() {
   const [feedback, setFeedback] = useState("");
   const [mintAmount, setMintAmount] = useState(1);
   const [displayCost, setDisplayCost] = useState(cost);
-  const [show, setShow] = useState(false);
+  const [state, setState] = useState(0);
   const [disable, setDisable] = useState(false);
   const [canMint, setCanMint] = useState(-1);
   const [pushArr , setPushArr] = useState([]);
@@ -90,7 +90,7 @@ function Home() {
 
 
   const getDataWithoutWallet = async() => {
-    const web3 = createAlchemyWeb3("https://eth-mainnet.alchemyapi.io/v2/EDLW4rQqMI3LEJUWifxT04jTycowEQNU");
+    const web3 = createAlchemyWeb3("https://eth-rinkeby.alchemyapi.io/v2/EDLW4rQqMI3LEJUWifxT04jTycowEQNU");
     const abiResponse = await fetch("/config/abi.json", {
       headers: {
         "Content-Type": "application/json",
@@ -98,10 +98,20 @@ function Home() {
       },
     });
     const abi = await abiResponse.json();
-    var contract = new Contract(abi, '0x313d47ac9106ddcae354ba601a0f9097375587f0'); 
+    var contract = new Contract(abi, '0x044872de2ccd83bb61412995a1523b318ca2dd6d'); 
+    console.log({contract});
     contract.setProvider(web3.currentProvider);
-    const salesConfig = await contract.methods.saleConfig().call();
-    setDisplayCost(Web3.utils.fromWei(salesConfig.mintlistPrice));
+    let state = await contract.methods.currentState().call();
+    setState(state);
+    if(state == 1){
+      let wlCost = await contract.methods.costWL().call();
+      setDisplayCost(Web3.utils.fromWei(wlCost));
+    }else if(state == 2){
+      let cost = await contract.methods.cost().call();
+      setDisplayCost(Web3.utils.fromWei(cost));
+    }else{
+      setDisplayCost(0);
+    }
     const totalSupply = await contract.methods
     .totalSupply()
     .call();
@@ -111,7 +121,7 @@ function Home() {
   const getData = async () => {
     if (blockchain.account !== "" && blockchain.smartContract !== null) {
       dispatch(fetchData(blockchain.account));
-      await axios.get(`https://vipcardroom.com/api/whitelist/key?address=${blockchain.account}`)
+      await axios.get(`    https://whitelist-house-party-animals.herokuapp.com/verify?address=${blockchain.account}`)
       .then(res => {
         console.log(res.data.data.proof);
         if(res.data.code === 0){
