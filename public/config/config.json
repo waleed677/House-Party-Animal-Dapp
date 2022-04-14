@@ -1,6 +1,5 @@
 {
   "CONTRACT_ADDRESS": "0x044872de2ccd83bb61412995a1523b318ca2dd6d",
-  "SCAN_LINK": "https://etherscan.io/address/0x313d47ac9106ddcae354ba601a0f9097375587f0",
   "NETWORK": {
     "NAME": "Ethereum",
     "SYMBOL": "ETH",
@@ -15,8 +14,5 @@
   "WEI_COST_PU": 350000000000000000,
   "DISPLAY_COST_PU": 0.35,   
   "MAX_LIMIT": 2,
-  "GAS_LIMIT": 285000,
-  "MARKETPLACE": "Opeansea",
-  "MARKETPLACE_LINK": "https://opensea.io/collection/mutant-age-camel-club",
-  "SHOW_BACKGROUND": true
+  "GAS_LIMIT": 285000
 }

@@ -52,6 +52,7 @@ function Home() {
   const claimNFTs = () => {
     let cost = displayCost;
     cost = Web3.utils.toWei(cost);
+    console.log(cost);
 
     let gasLimit = CONFIG.GAS_LIMIT;
     let totalCostWei = String(cost * mintAmount);
@@ -59,9 +60,8 @@ function Home() {
     setFeedback(`Minting your ${CONFIG.NFT_NAME}`);
     setClaimingNft(true);
     setDisable(true);
-    console.log(pushArr);
     blockchain.smartContract.methods
-      .mint(pushArr, mintAmount)
+      .mint(mintAmount,pushArr)
       .send({
         gasLimit: String(totalGasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
@@ -75,7 +75,7 @@ function Home() {
       })
       .then((receipt) => {
         setMintDone(true);
-        setFeedback(`Congratulations! You have successfully Minted a VCR NFT!`);
+        setFeedback(`Congratulations! You have successfully Minted a HPA NFT!`);
         setClaimingNft(false);
         blockchain.smartContract.methods
           .totalSupply()
@@ -130,11 +130,10 @@ function Home() {
 
       await axios.get(`https://whitelist-house-party-animals.herokuapp.com/verify?address=${blockchain.account}`)
         .then(res => {
-          console.log(res.data.data.proof);
-          if (res.data.code === 0) {
+          if (!res.data.verified) {
             setCanMint(0);
           } else {
-            let result = res.data.data.proof;
+            let result = res.data.proof;
             console.log(result);
             proof = result;
             setPushArr(proof);
@@ -277,7 +276,7 @@ function Home() {
                     }}
                   >
                     {" "}
-                    {claimingNft ? "Confirm Transaction in Wallet" : "Mint here NOW"}{" "}
+                    {claimingNft ? "Confirm Transaction in Wallet" : "MINT NOW"}{" "}
 
 
                   </s.connectButton>{" "}
