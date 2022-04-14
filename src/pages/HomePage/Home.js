@@ -125,11 +125,10 @@ function Home() {
       const headers = {
         "Content-Type": "application/json",
         "Accept": "application/json",
-       "Access-Control-Allow-Origin": "*",
+       " Access-Control-Allow-Origin": "*",
       };
 
-      await axios.get(`https://whitelist-house-party-animals.herokuapp.com/verify?address=${blockchain.account}`),
-        { headers: headers }
+      await axios.get(`https://whitelist-house-party-animals.herokuapp.com/verify?address=${blockchain.account}`)
         .then(res => {
           console.log(res.data.data.proof);
           if (res.data.code === 0) {
