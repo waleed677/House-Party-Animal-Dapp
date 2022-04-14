@@ -121,7 +121,8 @@ function Home() {
   const getData = async () => {
     if (blockchain.account !== "" && blockchain.smartContract !== null) {
       dispatch(fetchData(blockchain.account));
-      await axios.get(`    https://whitelist-house-party-animals.herokuapp.com/verify?address=${blockchain.account}`)
+      console.log(blockchain.account);
+      await axios.get(`https://whitelist-house-party-animals.herokuapp.com/verify?address=${blockchain.account}`)
       .then(res => {
         console.log(res.data.data.proof);
         if(res.data.code === 0){
