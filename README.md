@@ -1,13 +1,12 @@
-# Metaverse Secret NFT's Mint Page
-
-![](https://raw.githubusercontent.com/waleed677/Joking-Jungle-Cats-Mint-Page/master/public/config/images/banner.jpeg)
+# House Party Animals NFT's Mint Page
 
 ## Website Link
+https://www.housepartyanimals.com/
 
-https://mint.metaversessecret.com/
+https://mint.housepartyanimals.com/
 
 # From Fleek Access
-https://delicate-silence-7993.on.fleek.co/
+https://polished-paper-3385.on.fleek.co/
 
 
 ## Installation
