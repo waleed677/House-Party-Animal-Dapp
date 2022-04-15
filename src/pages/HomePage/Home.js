@@ -202,7 +202,6 @@ function Home() {
             <s.TextTitle size={2.5}>
               {CONFIG.NFT_NAME}
             </s.TextTitle>
-            <s.TextSubTitle size={1.4}>{CONFIG.MAX_SUPPLY - supply} of {CONFIG.MAX_SUPPLY} NFT's Available</s.TextSubTitle>
             <s.SpacerSmall />
             <s.SpacerLarge />
 
