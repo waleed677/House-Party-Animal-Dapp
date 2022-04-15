@@ -99,7 +99,6 @@ function Home() {
     });
     const abi = await abiResponse.json();
     var contract = new Contract(abi, '0x044872de2ccd83bb61412995a1523b318ca2dd6d');
-    console.log({ contract });
     contract.setProvider(web3.currentProvider);
     let state = await contract.methods.currentState().call();
     setState(state);
@@ -166,9 +165,9 @@ function Home() {
     getData();
   }, [blockchain.account]);
 
-  const maxNfts = () => {
-    setMintAmount(CONFIG.MAX_LIMIT);
-    setDisplayCost(parseFloat(displayCost * 2).toFixed(3));
+  const maxNfts = () => {  
+    setMintAmount(2);
+    setDisplayCost(parseFloat(CONFIG.DISPLAY_COST_PU * 2).toFixed(3));
   };
 
   const decrementMintAmount = () => {
