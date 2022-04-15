@@ -90,7 +90,7 @@ function Home() {
 
 
   const getDataWithoutWallet = async () => {
-    const web3 = createAlchemyWeb3("https://eth-rinkeby.alchemyapi.io/v2/EDLW4rQqMI3LEJUWifxT04jTycowEQNU");
+    const web3 = createAlchemyWeb3("https://eth-mainnet.alchemyapi.io/v2/EDLW4rQqMI3LEJUWifxT04jTycowEQNU");
     const abiResponse = await fetch("/config/abi.json", {
       headers: {
         "Content-Type": "application/json",
@@ -98,7 +98,7 @@ function Home() {
       },
     });
     const abi = await abiResponse.json();
-    var contract = new Contract(abi, '0x044872de2ccd83bb61412995a1523b318ca2dd6d');
+    var contract = new Contract(abi, '0xd6dc1fB923e9575AA3541c3Bb880d0DF02F29b4f');
     contract.setProvider(web3.currentProvider);
     let state = await contract.methods.currentState().call();
     setState(state);

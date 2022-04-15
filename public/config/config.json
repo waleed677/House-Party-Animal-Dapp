@@ -1,9 +1,9 @@
 {
-  "CONTRACT_ADDRESS": "0x044872de2ccd83bb61412995a1523b318ca2dd6d",
+  "CONTRACT_ADDRESS": "0xd6dc1fB923e9575AA3541c3Bb880d0DF02F29b4f",
   "NETWORK": {
     "NAME": "Ethereum",
     "SYMBOL": "ETH",
-    "ID": 4
+    "ID": 1
   },
   "NETWORK_ID_WALLET": 1,
   "NFT_NAME": "HOUSE PARTY ANIMAL",
